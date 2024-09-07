@@ -13,7 +13,7 @@ function HerbalEducation(){
                         </article>
                     </div>
                     <div className="w-1/2 ">
-                        <img src={plant} alt="" className="h-[00px]"/>
+                        <img src={plant} alt="" className="h-[500px]"/>
                     </div>
                 </div>
             </div>
