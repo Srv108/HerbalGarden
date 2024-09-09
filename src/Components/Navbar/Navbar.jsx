@@ -23,11 +23,11 @@ function Navbar() {
     };
 
     return (
-        <div className="navbar bg-base-100">
-            <div className="flex-1">
+        <div className="navbar bg-base-100 fixed top-0 left-0 w-full z-10">
+            <div className="flex-1 pl-20">
                 <img src={logo} alt="" className="h-11" />
             </div>
-            <div className="flex-none">
+            <div className="flex-none pr-20">
                 <ul className="menu menu-horizontal px-1">
                     <li className="" onClick={homeClick}><a>Home</a></li>
                     <li onClick={() => scrollToSection(sectionRefs.searchingHerbRef)}><a>Details</a></li>

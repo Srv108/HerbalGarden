@@ -14,7 +14,7 @@ function SearchBar({ onSearch }) {
     return (
         <div className="search-container w-1/2 h-20">
         <ReactSearchBox
-            placeholder="Search ..."
+            placeholder="Search for a plant..."
             onChange={handleSearch}
             debounce={300}
             inputHeight='50px'

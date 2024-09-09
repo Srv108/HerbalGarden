@@ -4,7 +4,7 @@ function TermsCondition(){
     console.log("terms");
     return(
         <> 
-            <div className="flex flex-col justify-center items-center w-full mb-96">
+            <div className="flex flex-col justify-center items-center w-full mb-96 pt-10">
                 <div className="container mx-auto px-4 sm:px-8 xl:max-w-6xl xl:px-4 flex justify-start mt-5">
                     <h1 className="xl:ml-30 font-black italic text-4xl">Disclamer</h1>
                 </div>
