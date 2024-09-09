@@ -16,8 +16,9 @@ function ImageCarousel() {
 
     return (
         <>
-            
-            <SearchBar onSearch={handleSearch} />
+            <div className='flex justify-center items-center'>
+                <SearchBar onSearch={handleSearch} />
+            </div>   
 
             <div className="carousel rounded-box mt-12 bg-amber-100 flex flex-row justify-between items-start space-x-6 p-6 shadow-lg w-full mb-48">
                 {treesToDisplay.map((tree, index) => (

@@ -1,26 +1,37 @@
-import HerbsTemplate from "../HerbsTemplate/HerbsTemplate";
+import React, { useRef, useEffect } from "react";
 import ExploreHerbs from "../HomeSection/ExploreHerbs";
-import FirstSection from "../HomeSection/FirstSection";
 import HerbalEducation from "../HomeSection/HerbalEducation";
-import ImageCarousel from "../ImageCaraousel/ImageCaraousel";
-import Navbar from "../Navbar/Navbar";
 import UsersEntry from "../StaticData/UsersEntry";
 import Footer from "../footer/Footer";
-import SearchBar from "../SearchBar/SearchBar";
 import SearchingHerb from "../HomeSection/SearchingHerb";
+import store from "../../Zustand/State"
 
-function Home(){
-    console.log("im in home");
-    return(
-        <>  
-            <div className="flex flex-col items-center">
-                <SearchingHerb/>
-                <ExploreHerbs/>
-                <HerbalEducation/>
-                <UsersEntry/>
-                <Footer/>
-            </div>
-        </>
+function Home() {
+
+    const {setSectionRefs} = store();
+
+    const searchingHerbRef = useRef(null);
+    const exploreHerbsRef = useRef(null);
+    const herbalEducationRef = useRef(null);
+    const usersEntryRef = useRef(null);
+
+    useEffect(() => {
+        setSectionRefs({
+            searchingHerbRef,
+            exploreHerbsRef,
+            herbalEducationRef,
+            usersEntryRef,
+        });
+    }, [setSectionRefs]);
+
+    return (
+        <div className="flex flex-col justify-center ">
+            <div ref={searchingHerbRef}><SearchingHerb /></div>
+            <div ref={exploreHerbsRef}><ExploreHerbs /></div>
+            <div ref={herbalEducationRef}><HerbalEducation /></div>
+            <div ref={usersEntryRef}><UsersEntry /></div>
+            <Footer />
+        </div>
     );
 }
 

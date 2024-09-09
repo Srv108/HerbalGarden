@@ -1,29 +1,40 @@
-import logo from "../../assets/logo.png"
-import Home from "../Pages/Home";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import logo from "../../assets/logo.png";
+import store from "../../Zustand/State"
 
-function Navbar(){
-    const navigate = useNavigate()
+function Navbar() {
+
+    const {sectionRefs} = store();
+    const navigate = useNavigate();
+
+    const scrollToSection = (ref) => {
+        if (ref && ref.current) {
+            ref.current.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     const handleClick = () => {
         navigate("/terms");
-    }
+    };
 
     const homeClick = () => {
         navigate("/");
-    }
-    return(
+    };
+
+    return (
         <div className="navbar bg-base-100">
             <div className="flex-1">
-                <img src={logo} alt=""  className="h-11" />
+                <img src={logo} alt="" className="h-11" />
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-1">
-                <li className="" onClick={homeClick}><a>Home</a></li>
-                <li><a>Details</a></li>
-                <li><a>Features</a></li>
-                <li><a>Fact</a></li>
-                <li><a>Herbs</a></li>
-                <li onClick={handleClick}><a>Terms Condition</a></li>
+                    <li className="" onClick={homeClick}><a>Home</a></li>
+                    <li onClick={() => scrollToSection(sectionRefs.searchingHerbRef)}><a>Details</a></li>
+                    <li onClick={() => scrollToSection(sectionRefs.exploreHerbsRef)}><a>Features</a></li>
+                    <li onClick={() => scrollToSection(sectionRefs.herbalEducationRef)}><a>Fact</a></li>
+                    <li onClick={() => scrollToSection(sectionRefs.usersEntryRef)}><a>Users</a></li>
+                    <li onClick={handleClick}><a>Terms Condition</a></li>
                 </ul>
             </div>
         </div>
